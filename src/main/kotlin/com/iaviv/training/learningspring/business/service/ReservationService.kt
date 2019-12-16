@@ -36,9 +36,9 @@ class ReservationService @Autowired constructor(
     fun getAllReservations(): MutableIterable<Reservation> = reservationRepository.findAll()
 
     fun getAllGuests(): List<Guest> = guestRepository.findAll().toList()
-    fun getGuestsByLastName(lastName: String) : List<Guest> = guestRepository.getGuestsByLastName(lastName)
-    fun getGuestsByFirstName(firstName: String) : List<Guest> = guestRepository.getGuestsByFirstName(firstName)
-    fun getGuestsByFirstNameAndLastName(firstName: String, lastName: String) : List<Guest> = guestRepository.getGuestsByFirstNameAndLastName(firstName, lastName)
+    fun getGuestsByLastName(lastName: String) : List<Guest> = guestRepository.getGuestsByLastNameIgnoreCase(lastName)
+    fun getGuestsByFirstName(firstName: String) : List<Guest> = guestRepository.getGuestsByFirstNameIgnoreCase(firstName)
+    fun getGuestsByFirstNameAndLastName(firstName: String, lastName: String) : List<Guest> = guestRepository.getGuestsByFirstNameAndLastNameIgnoreCase(firstName, lastName)
 
     fun getAllRooms() : List<Room> = roomRepository.findAll().toList()
 }

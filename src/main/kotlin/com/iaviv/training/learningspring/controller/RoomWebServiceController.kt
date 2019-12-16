@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController
 class RoomWebServiceController @Autowired constructor(
         private val reservationService: ReservationService
 ) {
-    @GetMapping("/api/rooms")
+    @GetMapping
     fun getAllRooms() : List<Room> = reservationService.getAllRooms()
 }

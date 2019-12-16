@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface GuestRepository : CrudRepository<Guest, Long> {
-    fun getGuestsByFirstNameAndLastName(firstName: String, lastName: String) : List<Guest>
-    fun getGuestsByFirstName(firstName: String) : List<Guest>
-    fun getGuestsByLastName(lastName: String) : List<Guest>
+    fun getGuestsByFirstNameAndLastNameIgnoreCase(firstName: String, lastName: String) : List<Guest>
+    fun getGuestsByFirstNameIgnoreCase(firstName: String) : List<Guest>
+    fun getGuestsByLastNameIgnoreCase(lastName: String) : List<Guest>
 }
