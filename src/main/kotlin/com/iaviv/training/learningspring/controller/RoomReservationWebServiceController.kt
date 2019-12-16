@@ -3,7 +3,6 @@ package com.iaviv.training.learningspring.controller
 import com.iaviv.training.learningspring.business.domain.RoomReservation
 import com.iaviv.training.learningspring.business.service.ReservationService
 import com.iaviv.training.learningspring.common.DateUtils
-import com.iaviv.training.learningspring.data.entity.Reservation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
-@RequestMapping("/api/reservations")
+@RequestMapping("/api/room-reservation")
 class RoomReservationWebServiceController @Autowired constructor(
         private val reservationService: ReservationService
 ) {
@@ -22,7 +21,4 @@ class RoomReservationWebServiceController @Autowired constructor(
         val date = DateUtils.createDateFromDateString(dateString)
         return reservationService.getRoomReservationForDate(date)
     }
-
-    @GetMapping
-    fun getAllReservations() : List<Reservation> = reservationService.getAllReservations().toList()
 }
