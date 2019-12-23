@@ -21,9 +21,7 @@ class ReservationService @Autowired constructor(
     fun getRoomReservationForDate(date: Date) : List<RoomReservation> {
         val rooms = roomRepository.findAll()
         val roomReservationMap = rooms.map{room->
-            room.roomID to RoomReservation(roomId=room.roomID,
-                    roomName = room.roomName,
-                    roomNumber = room.roomNumber)
+            room.roomID to RoomReservation(roomId=room.roomID,roomName = room.roomName,roomNumber = room.roomNumber)
         }.toMap().toMutableMap()
         val reservations = reservationRepository.findReservationsByReservationDate(java.sql.Date(date.time))
         reservations.forEach {reservation ->
