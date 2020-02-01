@@ -3,10 +3,8 @@ package com.iaviv.training.learningspring.controller
 import com.iaviv.training.learningspring.business.service.ReservationService
 import com.iaviv.training.learningspring.data.entity.Guest
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/guests")
@@ -23,4 +21,7 @@ class GuestWebServiceController @Autowired constructor(
             else -> reservationService.getGuestsByFirstNameAndLastName(firstName, lastName)
         }
     }
+
+    @PostMapping
+    fun addGuest(@Valid @RequestBody guest: Guest) : Guest = reservationService.addGuest(guest)
 }

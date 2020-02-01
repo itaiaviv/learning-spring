@@ -7,7 +7,7 @@ import javax.persistence.*
 data class Room(
         @Id
         @Column(name="ROOM_ID")
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         val roomID: Long,
 
         @Column(name="NAME")

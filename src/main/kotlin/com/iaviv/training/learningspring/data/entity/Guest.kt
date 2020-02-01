@@ -7,7 +7,7 @@ import javax.persistence.*
 data class Guest (
         @Id
         @Column(name="GUEST_ID")
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         val guestId: Long,
 
         @Column(name="FIRST_NAME")

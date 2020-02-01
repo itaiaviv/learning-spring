@@ -37,6 +37,8 @@ class ReservationService @Autowired constructor(
     fun getGuestsByLastName(lastName: String) : List<Guest> = guestRepository.getGuestsByLastNameIgnoreCase(lastName)
     fun getGuestsByFirstName(firstName: String) : List<Guest> = guestRepository.getGuestsByFirstNameIgnoreCase(firstName)
     fun getGuestsByFirstNameAndLastName(firstName: String, lastName: String) : List<Guest> = guestRepository.getGuestsByFirstNameAndLastNameIgnoreCase(firstName, lastName)
+    fun addGuest(guest: Guest) : Guest = guestRepository.save(guest)
 
     fun getAllRooms() : List<Room> = roomRepository.findAll().toList()
+    fun addRoom(room: Room) : Room = roomRepository.save(room)
 }
